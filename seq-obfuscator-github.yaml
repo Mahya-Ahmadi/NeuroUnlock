@@ -1,0 +1,32 @@
+# toy_en_de.yaml
+
+## Where the samples will be written
+save_data: seq-obfuscator/run/vanilla
+## Where the vocab(s) will be written
+src_vocab: seq-obfuscator/run/vanilla.vocab.src
+tgt_vocab: seq-obfuscator/run/vanilla.vocab.tgt
+# Prevent overwriting existing files in the folder
+overwrite: False
+
+# Corpus opts:
+data:
+    train_1:
+        path_src: seq-obfuscator/dataset/source.train.txt
+        path_tgt: seq-obfuscator/dataset/target.train.txt
+        weight: 1
+    # valid is the name of the validation dataset, it doesn't accept anything else
+    # for validation
+    valid:
+        path_src: seq-obfuscator/dataset/source.val.txt
+        path_tgt: seq-obfuscator/dataset/target.val.txt
+
+# Train on a single GPU
+world_size: 1
+gpu_ranks: [0]
+
+# Where to save the checkpoints
+save_model: seq-obfuscator/run/vanilla/model
+save_checkpoint_steps: 1000
+train_steps: 15000
+valid_steps: 15000
+
